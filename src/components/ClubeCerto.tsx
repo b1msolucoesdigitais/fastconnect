@@ -28,7 +28,7 @@ const ClubeCerto = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-gray-50">
+    <section id="clube-certo" className="py-20 bg-gradient-to-b from-white to-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <Badge className="mb-6 bg-primary/10 text-primary border-primary/20 px-4 py-2 text-base">

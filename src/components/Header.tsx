@@ -1,55 +1,82 @@
 import { Button } from "@/components/ui/button";
-import { Phone, Mail, Wifi } from "lucide-react";
+import { Menu } from "lucide-react";
+import { useState } from "react";
 
 const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const menuItems = [
+    { href: "#home", label: "Início" },
+    { href: "#planos", label: "Planos" },
+    { href: "#features", label: "Vantagens" },
+    { href: "#streaming", label: "Streaming" },
+    { href: "#clube-certo", label: "Clube Certo" },
+    { href: "#app", label: "Aplicativo" },
+    { href: "#contato", label: "Contato" },
+  ];
+
   return (
-    <header className="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-md border-b border-border">
-      <div className="container mx-auto px-4 py-4">
-        <div className="flex items-center justify-between">
+    <header className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-200">
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-primary to-brand-blue-light rounded-lg flex items-center justify-center">
-              <Wifi className="w-6 h-6 text-primary-foreground" />
-            </div>
-            <div>
-              <h1 className="text-xl font-bold text-foreground">Fast Connect</h1>
-              <p className="text-xs text-muted-foreground">Internet de Qualidade</p>
-            </div>
+          <div className="flex items-center">
+            <h1 className="text-2xl font-bold">
+              <span className="bg-gradient-to-r from-primary to-brand-blue-light bg-clip-text text-transparent">
+                Fast Fibra
+              </span>
+            </h1>
           </div>
 
-          {/* Navigation */}
+          {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#home" className="text-foreground hover:text-primary transition-colors">
-              Início
-            </a>
-            <a href="#planos" className="text-foreground hover:text-primary transition-colors">
-              Planos
-            </a>
-            <a href="#sobre" className="text-foreground hover:text-primary transition-colors">
-              Sobre
-            </a>
-            <a href="#contato" className="text-foreground hover:text-primary transition-colors">
-              Contato
-            </a>
+            {menuItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="text-gray-700 hover:text-primary transition-colors duration-200 font-medium"
+              >
+                {item.label}
+              </a>
+            ))}
           </nav>
 
-          {/* Contact Info & CTA */}
-          <div className="flex items-center space-x-4">
-            <div className="hidden lg:flex flex-col text-right">
-              <div className="flex items-center space-x-1 text-sm text-primary">
-                <Phone className="w-4 h-4" />
-                <span>(11) 9999-9999</span>
-              </div>
-              <div className="flex items-center space-x-1 text-sm text-muted-foreground">
-                <Mail className="w-4 h-4" />
-                <span>contato@fastconnect.com</span>
-              </div>
-            </div>
-            <Button className="bg-gradient-to-r from-primary to-brand-blue-light hover:from-brand-blue-dark hover:to-primary transition-all duration-300 shadow-lg hover:shadow-xl">
-              Assine Já
+          {/* CTA Button */}
+          <div className="hidden md:flex items-center space-x-4">
+            <Button className="bg-gradient-to-r from-primary to-brand-blue-light hover:from-brand-blue-dark hover:to-primary transition-all duration-300">
+              Assinar Agora
             </Button>
           </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden p-2"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            <Menu className="w-6 h-6 text-gray-700" />
+          </button>
         </div>
+
+        {/* Mobile Navigation */}
+        {isMenuOpen && (
+          <div className="md:hidden py-4 border-t border-gray-200">
+            <nav className="flex flex-col space-y-4">
+              {menuItems.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="text-gray-700 hover:text-primary transition-colors duration-200 font-medium"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.label}
+                </a>
+              ))}
+              <Button className="mt-4 bg-gradient-to-r from-primary to-brand-blue-light hover:from-brand-blue-dark hover:to-primary transition-all duration-300">
+                Assinar Agora
+              </Button>
+            </nav>
+          </div>
+        )}
       </div>
     </header>
   );
