@@ -7,21 +7,21 @@ const Features = () => {
   const features = [
     {
       icon: speedIcon,
-      title: "Velocidade Extrema",
-      description: "Navegue, jogue e assista vídeos sem travamentos com nossa conexão de fibra ótica até 1GB.",
-      stats: "Até 1GB"
+      title: "Ultra velocidade",
+      description: "Rápida, estável e sem enrolação. É Fast na rede. É Fast com você.",
+      stats: "Fibra 100%"
     },
     {
       icon: reliabilityIcon,
-      title: "99.9% de Disponibilidade",
-      description: "Conexão estável e confiável 24 horas por dia, 7 dias por semana, com redundância total.",
-      stats: "99.9% Uptime"
+      title: "Conexão de verdade",
+      description: "Conexão de verdade é aquela que funciona quando você mais precisa.",
+      stats: "12 anos"
     },
     {
       icon: supportIcon,
-      title: "Suporte Especializado",
-      description: "Equipe técnica qualificada disponível 24/7 para resolver qualquer questão rapidamente.",
-      stats: "24/7 Suporte"
+      title: "Atendimento humanizado",
+      description: "Oferecemos um atendimento humanizado, que valoriza cada cliente como único.",
+      stats: "8K+ clientes"
     }
   ];
 
@@ -30,13 +30,13 @@ const Features = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
-            Por Que Escolher a{" "}
+            A nossa internet é a sua{" "}
             <span className="bg-gradient-to-r from-primary to-brand-blue-light bg-clip-text text-transparent">
-              Fast Connect
+              escolha inteligente
             </span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Oferecemos a melhor experiência em internet banda larga com tecnologia de ponta
+            Mais Segura. Mais Estável. Mais Rápida. Mais <strong className="text-primary">FAST!</strong>
           </p>
         </div>
 

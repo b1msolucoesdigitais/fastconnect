@@ -33,18 +33,17 @@ const Hero = () => {
 
           {/* Main Heading */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-            Internet{" "}
             <span className="bg-gradient-to-r from-primary to-brand-blue-light bg-clip-text text-transparent">
-              Ultra Rápida
+              ULTRAVELOCIDADE
             </span>
             <br />
-            Para Sua Casa
+            de verdade
           </h1>
 
           {/* Subtitle */}
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-            Conecte-se ao futuro com nossa fibra ótica de alta velocidade. 
-            Sem interrupções, sem limites, sem complicações.
+            Para você assistir, jogar, trabalhar e navegar com potência máxima — sem travar, sem cair, sem limite. 
+            <strong className="text-primary">SEJA FAST!</strong>
           </p>
 
           {/* Features */}
