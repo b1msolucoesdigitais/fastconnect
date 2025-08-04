@@ -1,24 +1,22 @@
 import { Card, CardContent } from "@/components/ui/card";
-import speedIcon from "@/assets/speed-icon.png";
-import supportIcon from "@/assets/support-icon.png";
-import reliabilityIcon from "@/assets/reliability-icon.png";
+import { Zap, Shield, Headphones } from "lucide-react";
 
 const Features = () => {
   const features = [
     {
-      icon: speedIcon,
+      icon: <Zap className="w-8 h-8" />,
       title: "Ultra velocidade",
       description: "Rápida, estável e sem enrolação. É Fast na rede. É Fast com você.",
       stats: "Fibra 100%"
     },
     {
-      icon: reliabilityIcon,
+      icon: <Shield className="w-8 h-8" />,
       title: "Conexão de verdade",
       description: "Conexão de verdade é aquela que funciona quando você mais precisa.",
       stats: "12 anos"
     },
     {
-      icon: supportIcon,
+      icon: <Headphones className="w-8 h-8" />,
       title: "Atendimento humanizado",
       description: "Oferecemos um atendimento humanizado, que valoriza cada cliente como único.",
       stats: "8K+ clientes"
@@ -50,11 +48,9 @@ const Features = () => {
               <CardContent className="p-8 text-center">
                 <div className="relative mb-6">
                   <div className="w-20 h-20 mx-auto bg-gradient-to-br from-primary/20 to-brand-blue-light/20 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <img 
-                      src={feature.icon} 
-                      alt={feature.title}
-                      className="w-12 h-12 object-contain"
-                    />
+                    <div className="text-primary">
+                      {feature.icon}
+                    </div>
                   </div>
                   <div className="absolute top-0 right-0 bg-primary text-primary-foreground text-xs px-2 py-1 rounded-full font-semibold">
                     {feature.stats}

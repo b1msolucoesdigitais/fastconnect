@@ -4,12 +4,30 @@ import { Play, Tv, Smartphone, Monitor, Wifi } from "lucide-react";
 
 const Streaming = () => {
   const platforms = [
-    { name: "Netflix", icon: "🎬" },
-    { name: "Amazon Prime", icon: "📺" },
-    { name: "Disney+", icon: "🏰" },
-    { name: "YouTube", icon: "📽️" },
-    { name: "Spotify", icon: "🎵" },
-    { name: "Twitch", icon: "🎮" }
+    { 
+      name: "Netflix", 
+      logo: "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
+    },
+    { 
+      name: "Amazon Prime", 
+      logo: "https://upload.wikimedia.org/wikipedia/commons/1/11/Amazon_Prime_logo.svg"
+    },
+    { 
+      name: "Disney+", 
+      logo: "https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg"
+    },
+    { 
+      name: "YouTube", 
+      logo: "https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_logo_%282017%29.svg"
+    },
+    { 
+      name: "Spotify", 
+      logo: "https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg"
+    },
+    { 
+      name: "Twitch", 
+      logo: "https://upload.wikimedia.org/wikipedia/commons/2/26/Twitch_logo.svg"
+    }
   ];
 
   const benefits = [
@@ -59,9 +77,38 @@ const Streaming = () => {
           {platforms.map((platform, index) => (
             <Card key={index} className="bg-white/10 backdrop-blur border-white/20 hover:bg-white/20 transition-all duration-300 group">
               <CardContent className="p-4 text-center">
-                <div className="text-2xl mb-2 group-hover:scale-110 transition-transform duration-300">
-                  {platform.icon}
-                </div>
+                                 <div className="mb-2 group-hover:scale-110 transition-transform duration-300">
+                   {platform.name === "Netflix" && (
+                     <div className="w-12 h-12 mx-auto bg-red-600 rounded flex items-center justify-center">
+                       <span className="text-white font-bold text-lg">N</span>
+                     </div>
+                   )}
+                   {platform.name === "Amazon Prime" && (
+                     <div className="w-12 h-12 mx-auto bg-blue-600 rounded flex items-center justify-center">
+                       <span className="text-white font-bold text-xs">PRIME</span>
+                     </div>
+                   )}
+                   {platform.name === "Disney+" && (
+                     <div className="w-12 h-12 mx-auto bg-blue-800 rounded flex items-center justify-center">
+                       <span className="text-white font-bold text-sm">D+</span>
+                     </div>
+                   )}
+                   {platform.name === "YouTube" && (
+                     <div className="w-12 h-12 mx-auto bg-red-500 rounded flex items-center justify-center">
+                       <span className="text-white text-xl">▶</span>
+                     </div>
+                   )}
+                   {platform.name === "Spotify" && (
+                     <div className="w-12 h-12 mx-auto bg-green-500 rounded-full flex items-center justify-center">
+                       <span className="text-white text-xl">♪</span>
+                     </div>
+                   )}
+                   {platform.name === "Twitch" && (
+                     <div className="w-12 h-12 mx-auto bg-purple-600 rounded flex items-center justify-center">
+                       <span className="text-white font-bold text-sm">T</span>
+                     </div>
+                   )}
+                 </div>
                 <p className="text-xs text-gray-300">{platform.name}</p>
               </CardContent>
             </Card>

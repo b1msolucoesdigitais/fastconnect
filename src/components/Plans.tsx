@@ -1,58 +1,140 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Check, Zap, Wifi, Users } from "lucide-react";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Check, Zap, Wifi, Users, Smartphone, Gauge, ChevronLeft, ChevronRight } from "lucide-react";
+import { useState, useCallback } from "react";
+import useEmblaCarousel from 'embla-carousel-react';
 
 const Plans = () => {
+  const [selectedPlans, setSelectedPlans] = useState<{ [key: string]: boolean }>({});
+
   const plans = [
     {
-      name: "Fast 200MB",
-      speed: "200",
+      id: "240mb",
+      name: "Fast 240MB",
+      speed: "240",
+      basePrice: 79.90,
       price: "R$ 79,90",
       description: "Ideal para casa",
       features: [
-        "Download até 200MB",
-        "Upload até 100MB", 
         "Wi-Fi grátis",
         "Suporte 24h",
         "Instalação grátis"
       ],
-      icon: <Wifi className="w-6 h-6" />,
       popular: false
     },
     {
-      name: "Fast 500MB",
-      speed: "500", 
-      price: "R$ 119,90",
+      id: "360mb",
+      name: "Fast 360MB",
+      speed: "360",
+      basePrice: 89.90,
+      price: "R$ 89,90",
+      description: "Para pequenas famílias",
+      features: [
+        "Wi-Fi grátis",
+        "Suporte 24h",
+        "Instalação grátis"
+      ],
+      popular: false
+    },
+    {
+      id: "560mb",
+      name: "Fast 560MB",
+      speed: "560",
+      basePrice: 99.90,
+      price: "R$ 99,90",
       description: "Para toda família",
       features: [
-        "Download até 500MB",
-        "Upload até 250MB",
         "Wi-Fi grátis",
         "Suporte 24h", 
         "Instalação grátis",
-        "Netflix incluso"
+        { logos: ["netflix"] }
       ],
-      icon: <Users className="w-6 h-6" />,
-      popular: true
+      popular: false
     },
     {
+      id: "600mb",
+      name: "ULTRA FAST 600MB",
+      speed: "600",
+      basePrice: 119.90,
+      price: "R$ 119,90",
+      description: "Tecnologia Mesh",
+      features: [
+        "Wi-Fi Mesh grátis",
+        "2 Roteadores incluídos",
+        "Suporte 24h",
+        "Instalação grátis",
+        { logos: ["netflix", "prime"] }
+      ],
+      popular: false
+    },
+    {
+      id: "720mb",
+      name: "Fast 720MB",
+      speed: "720",
+      basePrice: 109.90,
+      price: "R$ 109,90",
+      description: "Alta performance",
+      features: [
+        "Wi-Fi 6 grátis",
+        "Suporte 24h",
+        "Instalação grátis",
+        { logos: ["netflix", "prime"] }
+      ],
+      popular: false
+    },
+    {
+      id: "1000mb",
       name: "Fast 1GB",
       speed: "1000",
+      basePrice: 159.90,
       price: "R$ 159,90", 
       description: "Ultra performance",
       features: [
-        "Download até 1GB",
-        "Upload até 500MB",
         "Wi-Fi 6 grátis",
         "Suporte prioritário 24h",
         "Instalação grátis",
-        "Netflix + Prime Video"
+        { logos: ["netflix", "prime", "disney"] }
       ],
-      icon: <Zap className="w-6 h-6" />,
       popular: false
     }
   ];
+
+  const handlePlanToggle = (planId: string) => {
+    setSelectedPlans(prev => ({
+      ...prev,
+      [planId]: !prev[planId]
+    }));
+  };
+
+  const calculateTotalPrice = (plan: any) => {
+    const basePrice = plan.basePrice;
+    const mobileAddon = selectedPlans[plan.id] ? 40 : 0;
+    return basePrice + mobileAddon;
+  };
+
+  const formatPrice = (price: number) => {
+    return `R$ ${price.toFixed(2).replace('.', ',')}`;
+  };
+
+  // Embla Carousel setup
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    align: 'center',
+    containScroll: 'trimSnaps',
+    slidesToScroll: 1,
+    loop: false,
+    dragFree: true,
+    peek: { before: 20, after: 20 }
+  });
+
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev()
+  }, [emblaApi])
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext()
+  }, [emblaApi])
 
   return (
     <section id="planos" className="py-20 bg-white">
@@ -69,71 +151,167 @@ const Plans = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {plans.map((plan, index) => (
-            <Card 
-              key={index} 
-              className={`relative group transition-all duration-300 hover:shadow-2xl ${
-                plan.popular 
-                  ? 'border-2 border-primary shadow-lg scale-105' 
-                  : 'border border-gray-200 hover:border-primary/50'
-              }`}
-            >
-              {plan.popular && (
-                <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-primary text-white px-4 py-1">
-                  Mais Popular
-                </Badge>
-              )}
-              
-              <CardHeader className="text-center pb-4">
-                <div className={`w-16 h-16 mx-auto mb-4 rounded-2xl flex items-center justify-center ${
-                  plan.popular 
-                    ? 'bg-gradient-to-br from-primary to-brand-blue-light text-white' 
-                    : 'bg-gradient-to-br from-primary/10 to-brand-blue-light/10 text-primary'
-                }`}>
-                  {plan.icon}
+        <div className="relative max-w-7xl mx-auto px-12">
+          <div className="embla overflow-hidden" ref={emblaRef}>
+            <div className="embla__container flex">
+              {plans.map((plan, index) => (
+                                 <div key={index} className="embla__slide flex-[0_0_100%] min-w-0 sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] px-2">
+                   <div className="p-2">
+                     <Card 
+                                             className={`relative group transition-all duration-300 hover:shadow-2xl h-full bg-gradient-to-br from-blue-50 to-blue-100 border-2 border-blue-200 hover:border-primary/50`}
+                     >
+
+                      
+                                                                    <CardHeader className="text-center pb-4">
+                         <CardTitle className={`text-2xl font-bold mb-2 text-gray-900`}>
+                           {plan.name}
+                         </CardTitle>
+                        
+                        <p className={`mb-4 ${
+                          plan.popular ? 'text-blue-100' : 'text-gray-600'
+                        }`}>
+                          {plan.description}
+                        </p>
+                        
+                        <div className="text-center">
+                          <span className={`text-3xl font-bold ${
+                            plan.popular ? 'text-white' : 'text-primary'
+                          }`}>
+                            {plan.speed}MB
+                          </span>
+                          <p className={`text-sm ${
+                            plan.popular ? 'text-blue-100' : 'text-gray-600'
+                          }`}>
+                            de velocidade
+                          </p>
+                        </div>
+                      </CardHeader>
+                      
+                      <CardContent className="pt-4 flex flex-col h-full">
+                                                 <ul className="space-y-3 mb-6 flex-grow">
+                           {plan.features.map((feature, featureIndex) => (
+                             <li key={featureIndex} className="flex items-center">
+                               <Check className={`w-5 h-5 mr-3 flex-shrink-0 text-primary`} />
+                               {typeof feature === 'string' ? (
+                                 <span className={`text-gray-700`}>
+                                   {feature}
+                                 </span>
+                               ) : feature.text ? (
+                                 <span className={`text-gray-700`}>
+                                   {feature.text}
+                                 </span>
+                               ) : null}
+                               {typeof feature === 'object' && feature.logo && (
+                                 <div className="ml-2">
+                                   {feature.logo === "netflix" && (
+                                     <div className="w-5 h-5 bg-red-600 rounded flex items-center justify-center">
+                                       <span className="text-white font-bold text-xs">N</span>
+                                     </div>
+                                   )}
+                                   {feature.logo === "prime" && (
+                                     <div className="w-5 h-5 bg-blue-600 rounded flex items-center justify-center">
+                                       <span className="text-white font-bold text-xs">P</span>
+                                     </div>
+                                   )}
+                                   {feature.logo === "disney" && (
+                                     <div className="w-5 h-5 bg-blue-800 rounded flex items-center justify-center">
+                                       <span className="text-white font-bold text-xs">D+</span>
+                                     </div>
+                                   )}
+                                 </div>
+                               )}
+                               {typeof feature === 'object' && feature.logos && (
+                                 <div className={`flex items-center gap-2 ${typeof feature === 'object' && !feature.text ? 'ml-0' : 'ml-2'}`}>
+                                   <span className={`text-sm font-medium text-gray-600`}>
+                                     Streamings inclusos:
+                                   </span>
+                                   <div className="flex gap-1">
+                                     {feature.logos.map((logo, logoIndex) => (
+                                       <div key={logoIndex}>
+                                         {logo === "netflix" && (
+                                           <div className="w-5 h-5 bg-red-600 rounded flex items-center justify-center">
+                                             <span className="text-white font-bold text-xs">N</span>
+                                           </div>
+                                         )}
+                                         {logo === "prime" && (
+                                           <div className="w-5 h-5 bg-blue-600 rounded flex items-center justify-center">
+                                             <span className="text-white font-bold text-xs">P</span>
+                                           </div>
+                                         )}
+                                         {logo === "disney" && (
+                                           <div className="w-5 h-5 bg-blue-800 rounded flex items-center justify-center">
+                                             <span className="text-white font-bold text-xs">D+</span>
+                                           </div>
+                                         )}
+                                       </div>
+                                     ))}
+                                   </div>
+                                 </div>
+                               )}
+                             </li>
+                           ))}
+                         </ul>
+
+                        {/* Mobile Plan Checkbox */}
+                        <div className={`mb-6 p-4 rounded-lg border bg-white/60 border-blue-200`}>
+                          <div className="flex items-center space-x-3">
+                            <Checkbox 
+                              id={`mobile-${plan.id}`}
+                              checked={selectedPlans[plan.id] || false}
+                              onCheckedChange={() => handlePlanToggle(plan.id)}
+                              className="text-primary"
+                            />
+                            <label 
+                              htmlFor={`mobile-${plan.id}`}
+                              className={`flex items-center space-x-2 text-sm font-medium cursor-pointer text-gray-700`}
+                            >
+                              <Smartphone className={`w-4 h-4 text-primary`} />
+                              <span>+1 Plano de celular 20GB</span>
+                            </label>
+                          </div>
+                        </div>
+
+                        {/* Price and Button Section */}
+                        <div className="space-y-4">
+                          <div className="text-center">
+                            <span className={`text-4xl font-bold text-gray-900`}>
+                              {formatPrice(calculateTotalPrice(plan))}
+                            </span>
+                            <span className={`text-gray-600`}>
+                              /mês
+                            </span>
+                          </div>
+                          
+                          <Button 
+                            className={`w-full bg-primary text-white hover:bg-primary/90 transition-all duration-300`}
+                            size="lg"
+                          >
+                            Assinar Agora
+                          </Button>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
                 </div>
-                
-                <CardTitle className="text-2xl font-bold text-gray-900 mb-2">
-                  {plan.name}
-                </CardTitle>
-                
-                <p className="text-gray-600 mb-4">{plan.description}</p>
-                
-                <div className="mb-4">
-                  <span className="text-4xl font-bold text-gray-900">{plan.price}</span>
-                  <span className="text-gray-600">/mês</span>
-                </div>
-                
-                <div className="text-center">
-                  <span className="text-3xl font-bold text-primary">{plan.speed}MB</span>
-                  <p className="text-sm text-gray-600">de velocidade</p>
-                </div>
-              </CardHeader>
-              
-              <CardContent className="pt-4">
-                <ul className="space-y-3 mb-8">
-                  {plan.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center">
-                      <Check className="w-5 h-5 text-primary mr-3 flex-shrink-0" />
-                      <span className="text-gray-700">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                
-                <Button 
-                  className={`w-full ${
-                    plan.popular
-                      ? 'bg-gradient-to-r from-primary to-brand-blue-light hover:from-brand-blue-dark hover:to-primary'
-                      : 'bg-gray-900 hover:bg-gray-800'
-                  } transition-all duration-300`}
-                  size="lg"
-                >
-                  Assinar Agora
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
+              ))}
+            </div>
+          </div>
+          
+          {/* Custom Navigation Buttons */}
+          <button
+            className="absolute -left-6 top-1/2 transform -translate-y-1/2 bg-white/95 border-2 border-primary text-primary hover:bg-white shadow-lg rounded-full p-3 z-10"
+            onClick={scrollPrev}
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+          <button
+            className="absolute -right-6 top-1/2 transform -translate-y-1/2 bg-white/95 border-2 border-primary text-primary hover:bg-white shadow-lg rounded-full p-3 z-10"
+            onClick={scrollNext}
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
+          
+
         </div>
 
         <div className="mt-12 text-center">
