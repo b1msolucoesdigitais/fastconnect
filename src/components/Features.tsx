@@ -26,7 +26,7 @@ const Features = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-background to-muted/20">
+    <section className="py-20 bg-gradient-to-b from-white via-gray-50 to-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
@@ -35,7 +35,7 @@ const Features = () => {
               escolha inteligente
             </span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Mais Segura. Mais Estável. Mais Rápida. Mais <strong className="text-primary">FAST!</strong>
           </p>
         </div>
@@ -44,7 +44,7 @@ const Features = () => {
           {features.map((feature, index) => (
             <Card 
               key={index} 
-              className="group bg-card/50 backdrop-blur-sm border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 animate-fade-in-up"
+              className="group bg-white border border-gray-200 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 animate-fade-in-up"
               style={{ animationDelay: `${index * 0.2}s` }}
             >
               <CardContent className="p-8 text-center">
@@ -61,11 +61,11 @@ const Features = () => {
                   </div>
                 </div>
                 
-                <h3 className="text-xl font-bold mb-4 text-foreground group-hover:text-primary transition-colors">
+                <h3 className="text-xl font-bold mb-4 text-gray-900 group-hover:text-primary transition-colors">
                   {feature.title}
                 </h3>
                 
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-gray-600 leading-relaxed">
                   {feature.description}
                 </p>
               </CardContent>
@@ -77,20 +77,20 @@ const Features = () => {
         <div className="mt-16 text-center">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
             <div className="space-y-2">
-              <div className="text-3xl font-bold text-primary">50K+</div>
-              <div className="text-sm text-muted-foreground">Clientes Ativos</div>
+              <div className="text-3xl font-bold text-primary">8K+</div>
+              <div className="text-sm text-gray-600">Clientes Ativos</div>
             </div>
             <div className="space-y-2">
               <div className="text-3xl font-bold text-primary">99.9%</div>
-              <div className="text-sm text-muted-foreground">Disponibilidade</div>
+              <div className="text-sm text-gray-600">Disponibilidade</div>
             </div>
             <div className="space-y-2">
-              <div className="text-3xl font-bold text-primary">1GB</div>
-              <div className="text-sm text-muted-foreground">Velocidade Máxima</div>
+              <div className="text-3xl font-bold text-primary">12</div>
+              <div className="text-sm text-gray-600">Anos de Mercado</div>
             </div>
             <div className="space-y-2">
               <div className="text-3xl font-bold text-primary">24/7</div>
-              <div className="text-sm text-muted-foreground">Suporte Técnico</div>
+              <div className="text-sm text-gray-600">Suporte Técnico</div>
             </div>
           </div>
         </div>
