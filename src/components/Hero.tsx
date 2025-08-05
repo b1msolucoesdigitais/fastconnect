@@ -1,11 +1,24 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Zap, Shield, Clock, ChevronLeft, ChevronRight } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { useRef } from "react";
+import { ArrowRight, Zap, Shield, Clock } from "lucide-react";
+import { Carousel, CarouselContent, CarouselItem, CarouselApi } from "@/components/ui/carousel";
+import { useRef, useState, useEffect } from "react";
 
 const Hero = () => {
+  const [api, setApi] = useState<CarouselApi>();
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    if (!api) {
+      return;
+    }
+
+    setCurrentSlide(api.selectedScrollSnap());
+
+    api.on("select", () => {
+      setCurrentSlide(api.selectedScrollSnap());
+    });
+  }, [api]);
 
   const slides = [
     {
@@ -35,14 +48,15 @@ const Hero = () => {
   ];
 
   return (
-    <section id="home" className="relative min-h-screen overflow-hidden">
+    <section id="home" className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 overflow-hidden">
       <Carousel
-        className="w-full h-screen"
+        className="w-full"
+        setApi={setApi}
       >
         <CarouselContent>
           {slides.map((slide, index) => (
             <CarouselItem key={index}>
-              <div className="relative h-screen flex items-center justify-center">
+                             <div className="relative h-[600px] flex items-center justify-center">
                 {/* Background Image */}
                 <div 
                   className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -60,7 +74,7 @@ const Hero = () => {
                 </div>
 
                 {/* Content */}
-                <div className="relative z-10 container mx-auto px-4 py-20 text-center">
+                <div className="relative z-10 px-8 py-12 text-center">
                   <div className="max-w-4xl mx-auto animate-fade-in-up">
                     {/* Badge */}
                     <Badge className="mb-6 bg-primary/20 text-primary border-primary/30 px-4 py-2">
@@ -136,8 +150,21 @@ const Hero = () => {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="left-4 bg-white/20 border-white/30 text-white hover:bg-white/30" />
-        <CarouselNext className="right-4 bg-white/20 border-white/30 text-white hover:bg-white/30" />
+        
+        {/* Dots Navigation */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              className={`w-3 h-3 rounded-full transition-colors duration-200 ${
+                currentSlide === index 
+                  ? 'bg-white' 
+                  : 'bg-white/30 hover:bg-white/50'
+              }`}
+                             onClick={() => api?.scrollTo(index)}
+            />
+          ))}
+        </div>
       </Carousel>
     </section>
   );

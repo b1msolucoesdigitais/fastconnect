@@ -39,8 +39,8 @@ const Contact = () => {
                     <Phone className="w-6 h-6 text-primary" />
                   </div>
                   <h4 className="font-semibold mb-2 text-foreground">Telefone</h4>
-                  <p className="text-primary font-semibold">(11) 9999-9999</p>
-                  <p className="text-sm text-muted-foreground">Seg-Sex: 8h às 18h</p>
+                  <p className="text-primary font-semibold">(31) 98694-7249</p>
+                  <p className="text-sm text-muted-foreground">Seg-Sex: 09:00 às 18:00</p>
                 </CardContent>
               </Card>
 
@@ -50,7 +50,7 @@ const Contact = () => {
                     <MessageCircle className="w-6 h-6 text-primary" />
                   </div>
                   <h4 className="font-semibold mb-2 text-foreground">WhatsApp</h4>
-                  <p className="text-primary font-semibold">(11) 99999-9999</p>
+                  <p className="text-primary font-semibold">(31) 98694-7249</p>
                   <p className="text-sm text-muted-foreground">24h online</p>
                 </CardContent>
               </Card>
@@ -61,7 +61,7 @@ const Contact = () => {
                     <Mail className="w-6 h-6 text-primary" />
                   </div>
                   <h4 className="font-semibold mb-2 text-foreground">E-mail</h4>
-                  <p className="text-primary font-semibold text-sm">contato@fastconnect.com</p>
+                  <p className="text-primary font-semibold text-sm">contato@fastconnect.net.br</p>
                   <p className="text-sm text-muted-foreground">Resposta em 2h</p>
                 </CardContent>
               </Card>
@@ -73,8 +73,8 @@ const Contact = () => {
                   </div>
                   <h4 className="font-semibold mb-2 text-foreground">Endereço</h4>
                   <p className="text-sm text-muted-foreground">
-                    Rua das Fibras, 123<br />
-                    São Paulo - SP
+                    Avenida Galiléia, 652, Canaã<br />
+                    Ipatinga/MG
                   </p>
                 </CardContent>
               </Card>
@@ -85,10 +85,11 @@ const Contact = () => {
               <CardContent className="p-6 text-center">
                 <Clock className="w-8 h-8 text-primary mx-auto mb-4" />
                 <h4 className="text-lg font-bold mb-2 text-foreground">
-                  Atendimento 24/7
+                  Horário de Atendimento
                 </h4>
                 <p className="text-sm text-muted-foreground mb-4">
-                  Suporte técnico disponível a qualquer hora do dia
+                  Seg - Sex: 09:00 às 18:00<br />
+                  Sábado: 09:00 às 12h00
                 </p>
                 <Button className="bg-gradient-to-r from-primary to-brand-blue-light hover:from-brand-blue-dark hover:to-primary">
                   Falar Agora
@@ -120,7 +121,7 @@ const Contact = () => {
                       Telefone
                     </label>
                     <Input 
-                      placeholder="(11) 99999-9999"
+                      placeholder="(31) 98694-7249"
                       className="bg-background/50"
                     />
                   </div>

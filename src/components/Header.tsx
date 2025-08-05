@@ -21,11 +21,11 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <h1 className="text-2xl font-bold">
-              <span className="bg-gradient-to-r from-primary to-brand-blue-light bg-clip-text text-transparent">
-                Fast Fibra
-              </span>
-            </h1>
+            <img 
+              src="https://sites.b1m.digital/fastconnect/wp-content/uploads/2025/05/10-dias-_02.png" 
+              alt="Fast Connect Logo" 
+              className="h-14 w-auto"
+            />
           </div>
 
           {/* Desktop Navigation */}
