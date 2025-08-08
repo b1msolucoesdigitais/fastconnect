@@ -8,9 +8,11 @@ const Header = () => {
   const menuItems = [
     { href: "#home", label: "Início" },
     { href: "#planos", label: "Planos" },
+    // { href: "#cobertura", label: "Cobertura" },
     { href: "#features", label: "Vantagens" },
     { href: "#streaming", label: "Streaming" },
     { href: "#clube-certo", label: "Clube Certo" },
+    { href: "#faq", label: "Dúvidas" },
     { href: "#app", label: "Aplicativo" },
     { href: "#contato", label: "Contato" },
   ];

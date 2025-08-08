@@ -8,28 +8,36 @@ const ClubeCerto = () => {
     {
       icon: <ShoppingBag className="w-6 h-6" />,
       title: "Descontos exclusivos",
-      description: "Em lojas, serviços e estabelecimentos parceiros"
+      description: "Em lojas, serviços e estabelecimentos parceiros",
+      image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
     },
     {
       icon: <Heart className="w-6 h-6" />,
       title: "Saúde e bem-estar",
-      description: "Vantagens em saúde, educação, estética e lazer"
+      description: "Vantagens em saúde, educação, estética e lazer",
+      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
     },
     {
       icon: <Gift className="w-6 h-6" />,
       title: "Ofertas especiais",
-      description: "Ofertas exclusivas direto no aplicativo"
+      description: "Ofertas exclusivas direto no aplicativo",
+      image: "https://images.unsplash.com/photo-1607082349566-187342175e2f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
     },
     {
       icon: <Star className="w-6 h-6" />,
       title: "Acesso antecipado",
-      description: "Novidades antecipadas e condições especiais"
+      description: "Novidades antecipadas e condições especiais",
+      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
     }
   ];
 
   return (
-    <section id="clube-certo" className="py-20 bg-gradient-to-b from-white to-gray-50">
-      <div className="container mx-auto px-4">
+    <section id="clube-certo" className="py-20 bg-gradient-to-br from-blue-50 via-white to-indigo-50 relative overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(14,165,233,0.08),transparent_50%)]" />
+      <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-primary/10 to-transparent rounded-full blur-3xl" />
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <Badge className="mb-6 bg-primary/10 text-primary border-primary/20 px-4 py-2 text-base">
             <Sparkles className="w-4 h-4 mr-2" />
@@ -56,9 +64,17 @@ const ClubeCerto = () => {
         {/* Benefits Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {benefits.map((benefit, index) => (
-            <Card key={index} className="group bg-white border border-gray-200 hover:border-primary/30 hover:shadow-lg transition-all duration-300 animate-fade-in-up" style={{ animationDelay: `${index * 0.1}s` }}>
+            <Card key={index} className="group bg-white border border-gray-200 hover:border-primary/30 hover:shadow-lg transition-all duration-300 animate-fade-in-up overflow-hidden" style={{ animationDelay: `${index * 0.1}s` }}>
+              <div className="relative h-32 overflow-hidden">
+                <img 
+                  src={benefit.image} 
+                  alt={benefit.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+              </div>
               <CardContent className="p-6 text-center">
-                <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-primary/10 to-brand-blue-light/10 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-primary/10 to-brand-blue-light/10 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 -mt-8 relative z-10 bg-white shadow-lg">
                   <div className="text-primary">
                     {benefit.icon}
                   </div>
@@ -76,8 +92,9 @@ const ClubeCerto = () => {
 
         {/* Highlight Box */}
         <div className="max-w-4xl mx-auto">
-          <Card className="bg-gradient-to-r from-primary/5 via-white to-brand-blue-light/5 border-2 border-primary/20 shadow-lg">
-            <CardContent className="p-8 text-center">
+          <Card className="bg-gradient-to-r from-primary/5 via-white to-brand-blue-light/5 border-2 border-primary/20 shadow-lg relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-primary/10 to-transparent rounded-full blur-2xl" />
+            <CardContent className="p-8 text-center relative z-10">
               <div className="flex items-center justify-center gap-2 mb-4">
                 <Gift className="w-8 h-8 text-primary" />
                 <span className="text-2xl font-bold text-gray-900">

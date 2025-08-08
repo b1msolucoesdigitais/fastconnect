@@ -7,25 +7,32 @@ const Features = () => {
       icon: <Zap className="w-8 h-8" />,
       title: "Ultra velocidade",
       description: "Rápida, estável e sem enrolação. É Fast na rede. É Fast com você.",
-      stats: "Fibra 100%"
+      stats: "Fibra 100%",
+      image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
     },
     {
       icon: <Shield className="w-8 h-8" />,
       title: "Conexão de verdade",
       description: "Conexão de verdade é aquela que funciona quando você mais precisa.",
-      stats: "12 anos"
+      stats: "12 anos",
+      image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
     },
     {
       icon: <Headphones className="w-8 h-8" />,
       title: "Atendimento humanizado",
       description: "Oferecemos um atendimento humanizado, que valoriza cada cliente como único.",
-      stats: "8K+ clientes"
+      stats: "8K+ clientes",
+      image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
     }
   ];
 
   return (
-    <section id="features" className="py-20 bg-gradient-to-b from-white via-gray-50 to-white">
-      <div className="container mx-auto px-4">
+    <section id="features" className="py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50 relative overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(14,165,233,0.08),transparent_50%)]" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-primary/10 to-transparent rounded-full blur-3xl" />
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
             A nossa internet é a sua{" "}
@@ -42,9 +49,17 @@ const Features = () => {
           {features.map((feature, index) => (
             <Card 
               key={index} 
-              className="group bg-white border border-gray-200 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 animate-fade-in-up"
+              className="group bg-white border border-gray-200 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 animate-fade-in-up overflow-hidden"
               style={{ animationDelay: `${index * 0.2}s` }}
             >
+              <div className="relative h-48 overflow-hidden">
+                <img 
+                  src={feature.image} 
+                  alt={feature.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+              </div>
               <CardContent className="p-8 text-center">
                 <div className="relative mb-6">
                   <div className="w-20 h-20 mx-auto bg-gradient-to-br from-primary/20 to-brand-blue-light/20 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
