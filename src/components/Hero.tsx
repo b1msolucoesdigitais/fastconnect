@@ -39,7 +39,7 @@ const Hero = () => {
   }, [api]);
 
   return (
-    <section id="home" className="relative w-full h-[440px] mt-16 bg-[#00042f]">
+    <section id="home" className="relative w-full h-[146.66px] sm:h-[220px] md:h-[330px] lg:h-[440px] mt-16 bg-[#00042f]">
       <Carousel
         setApi={setApi}
         className="w-full h-full"
@@ -58,7 +58,11 @@ const Hero = () => {
                     src={banner.image}
                     alt={`Banner ${index + 1} - FAST Connect`}
                     className="h-full object-contain object-center cursor-pointer transition-transform hover:scale-105"
-                    style={{ maxWidth: '1170px', width: '100%' }}
+                    style={{ 
+                      maxWidth: '1170px',
+                      width: '100%',
+                      maxHeight: '100%'
+                    }}
                   />
                 </a>
               </div>
@@ -68,12 +72,12 @@ const Hero = () => {
       </Carousel>
 
       {/* Dots indicator */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-10">
+      <div className="absolute bottom-2 sm:bottom-4 left-1/2 transform -translate-x-1/2 flex gap-1.5 sm:gap-2 z-10">
         {banners.map((_, index) => (
           <button
             key={index}
             onClick={() => api?.scrollTo(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+            className={`w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 rounded-full transition-all duration-300 ${
               current === index ? "bg-white scale-125 shadow-lg" : "bg-white/50 hover:bg-white/70"
             }`}
             aria-label={`Ir para slide ${index + 1}`}

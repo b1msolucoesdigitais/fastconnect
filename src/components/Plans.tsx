@@ -133,8 +133,7 @@ const Plans = () => {
     containScroll: 'trimSnaps',
     slidesToScroll: 1,
     loop: false,
-    dragFree: true,
-    peek: { before: 20, after: 20 }
+    dragFree: true
   });
 
   const scrollPrev = useCallback(() => {
@@ -160,15 +159,15 @@ const Plans = () => {
           </p>
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-12">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
           <div className="embla overflow-hidden" ref={emblaRef}>
             <div className="embla__container flex">
               {plans.map((plan, index) => (
-                                 <div key={index} className="embla__slide flex-[0_0_100%] min-w-0 sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] px-2">
-                   <div className="p-2">
-                     <Card 
-                                             className={`relative group transition-all duration-300 hover:shadow-2xl h-full bg-gradient-to-br from-blue-50 to-blue-100 border-2 border-blue-200 hover:border-primary/50`}
-                     >
+                <div key={index} className="embla__slide flex-[0_0_100%] min-w-0 sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] px-2 sm:px-3 lg:px-4">
+                  <div className="p-2 sm:p-3 lg:p-4">
+                    <Card 
+                      className={`relative group transition-all duration-300 hover:shadow-2xl h-full bg-gradient-to-br from-blue-50 to-blue-100 border-2 border-blue-200 hover:border-primary/50`}
+                    >
 
                       
                                                                     <CardHeader className="text-center pb-4">
@@ -198,68 +197,44 @@ const Plans = () => {
                       
                       <CardContent className="pt-4 flex flex-col h-full">
                                                  <ul className="space-y-3 mb-6 flex-grow">
-                           {plan.features.map((feature, featureIndex) => (
-                             <li key={featureIndex} className="flex items-center">
-                               <Check className={`w-5 h-5 mr-3 flex-shrink-0 text-primary`} />
-                               {typeof feature === 'string' ? (
-                                 <span className={`text-gray-700`}>
-                                   {feature}
-                                 </span>
-                               ) : feature.text ? (
-                                 <span className={`text-gray-700`}>
-                                   {feature.text}
-                                 </span>
-                               ) : null}
-                               {typeof feature === 'object' && feature.logo && (
-                                 <div className="ml-2">
-                                   {feature.logo === "netflix" && (
-                                     <div className="w-5 h-5 bg-red-600 rounded flex items-center justify-center">
-                                       <span className="text-white font-bold text-xs">N</span>
-                                     </div>
-                                   )}
-                                   {feature.logo === "prime" && (
-                                     <div className="w-5 h-5 bg-blue-600 rounded flex items-center justify-center">
-                                       <span className="text-white font-bold text-xs">P</span>
-                                     </div>
-                                   )}
-                                   {feature.logo === "disney" && (
-                                     <div className="w-5 h-5 bg-blue-800 rounded flex items-center justify-center">
-                                       <span className="text-white font-bold text-xs">D+</span>
-                                     </div>
-                                   )}
-                                 </div>
-                               )}
-                               {typeof feature === 'object' && feature.logos && (
-                                 <div className={`flex items-center gap-2 ${typeof feature === 'object' && !feature.text ? 'ml-0' : 'ml-2'}`}>
-                                   <span className={`text-sm font-medium text-gray-600`}>
-                                     Streamings inclusos:
-                                   </span>
-                                   <div className="flex gap-1">
-                                     {feature.logos.map((logo, logoIndex) => (
-                                       <div key={logoIndex}>
-                                         {logo === "netflix" && (
-                                           <div className="w-5 h-5 bg-red-600 rounded flex items-center justify-center">
-                                             <span className="text-white font-bold text-xs">N</span>
-                                           </div>
-                                         )}
-                                         {logo === "prime" && (
-                                           <div className="w-5 h-5 bg-blue-600 rounded flex items-center justify-center">
-                                             <span className="text-white font-bold text-xs">P</span>
-                                           </div>
-                                         )}
-                                         {logo === "disney" && (
-                                           <div className="w-5 h-5 bg-blue-800 rounded flex items-center justify-center">
-                                             <span className="text-white font-bold text-xs">D+</span>
-                                           </div>
-                                         )}
-                                       </div>
-                                     ))}
-                                   </div>
-                                 </div>
-                               )}
-                             </li>
-                           ))}
-                         </ul>
+                          {plan.features.map((feature, featureIndex) => (
+                            <li key={featureIndex} className="flex items-center">
+                              <Check className={`w-5 h-5 mr-3 flex-shrink-0 text-primary`} />
+                              {typeof feature === 'string' ? (
+                                <span className={`text-gray-700`}>
+                                  {feature}
+                                </span>
+                              ) : feature.logos ? (
+                                <div className="flex items-center gap-2">
+                                  <span className={`text-sm font-medium text-gray-600`}>
+                                    Streamings inclusos:
+                                  </span>
+                                  <div className="flex gap-1">
+                                    {feature.logos.map((logo, logoIndex) => (
+                                      <div key={logoIndex}>
+                                        {logo === "netflix" && (
+                                          <div className="w-5 h-5 bg-red-600 rounded flex items-center justify-center">
+                                            <span className="text-white font-bold text-xs">N</span>
+                                          </div>
+                                        )}
+                                        {logo === "prime" && (
+                                          <div className="w-5 h-5 bg-blue-600 rounded flex items-center justify-center">
+                                            <span className="text-white font-bold text-xs">P</span>
+                                          </div>
+                                        )}
+                                        {logo === "disney" && (
+                                          <div className="w-5 h-5 bg-blue-800 rounded flex items-center justify-center">
+                                            <span className="text-white font-bold text-xs">D+</span>
+                                          </div>
+                                        )}
+                                      </div>
+                                    ))}
+                                  </div>
+                                </div>
+                              ) : null}
+                            </li>
+                          ))}
+                        </ul>
 
                         {/* Mobile Plan Checkbox */}
                         <div className={`mb-6 p-4 rounded-lg border bg-white/60 border-blue-200`}>

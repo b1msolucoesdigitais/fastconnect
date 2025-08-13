@@ -62,27 +62,31 @@ const ClubeCerto = () => {
         </div>
 
         {/* Benefits Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-16">
           {benefits.map((benefit, index) => (
             <Card key={index} className="group bg-white border border-gray-200 hover:border-primary/30 hover:shadow-lg transition-all duration-300 animate-fade-in-up overflow-hidden" style={{ animationDelay: `${index * 0.1}s` }}>
               <div className="relative overflow-hidden">
                 <img 
                   src={benefit.image} 
                   alt={benefit.title}
-                  className="w-full h-[150px] object-contain bg-gray-50 group-hover:scale-105 transition-transform duration-300"
-                  style={{ width: '320px', maxWidth: '100%' }}
+                  className="w-full h-[120px] sm:h-[130px] lg:h-[150px] object-contain bg-gray-50 group-hover:scale-105 transition-transform duration-300"
+                  style={{ 
+                    width: '100%', 
+                    maxWidth: '100%',
+                    height: 'auto'
+                  }}
                 />
               </div>
-              <CardContent className="p-6 text-center">
-                <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-primary/10 to-brand-blue-light/10 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 -mt-8 relative z-10 bg-white shadow-lg">
+              <CardContent className="p-4 sm:p-6 text-center">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 mx-auto mb-4 bg-gradient-to-br from-primary/10 to-brand-blue-light/10 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 -mt-6 sm:-mt-8 relative z-10 bg-white shadow-lg">
                   <div className="text-primary">
                     {benefit.icon}
                   </div>
                 </div>
-                <h3 className="text-lg font-semibold mb-2 text-gray-900 group-hover:text-primary transition-colors">
+                <h3 className="text-base sm:text-lg font-semibold mb-2 text-gray-900 group-hover:text-primary transition-colors">
                   {benefit.title}
                 </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
+                <p className="text-xs sm:text-sm text-gray-600 text-sm leading-relaxed">
                   {benefit.description}
                 </p>
               </CardContent>

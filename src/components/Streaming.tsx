@@ -92,13 +92,13 @@ const Streaming = () => {
         </div>
 
         {/* Platforms - Novo Layout Compacto */}
-        <div className="flex flex-wrap justify-center items-center gap-8 mb-6 max-w-5xl mx-auto">
+        <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 lg:gap-8 mb-16 max-w-5xl mx-auto">
           {platforms.map((platform, index) => (
             <div 
               key={index} 
               className="group cursor-pointer transition-all duration-300 hover:scale-110"
             >
-              <div className="w-20 h-20 bg-white rounded-2xl shadow-lg flex items-center justify-center p-3 hover:shadow-xl transition-shadow duration-300">
+              <div className="w-16 h-16 sm:w-18 sm:h-18 lg:w-20 lg:h-20 bg-white rounded-xl sm:rounded-2xl shadow-lg flex items-center justify-center p-2 sm:p-3 hover:shadow-xl transition-shadow duration-300">
                 <img 
                   src={platform.logo} 
                   alt={`Logo ${platform.name}`}

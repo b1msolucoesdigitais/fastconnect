@@ -62,30 +62,30 @@ const Testimonials = () => {
         </div>
 
         {/* Testimonials Grid */}
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-6xl mx-auto mb-16">
           {testimonials.map((t, i) => (
-            <Card key={i} className="bg-white/80 backdrop-blur border-0 shadow-xl hover:shadow-2xl transition-all duration-500 group hover:-translate-y-2">
-              <CardContent className="p-8">
-                <div className="flex items-center gap-4 mb-6">
+            <Card key={i} className="group bg-white/80 backdrop-blur border-0 shadow-xl hover:shadow-2xl transition-all duration-500 group hover:-translate-y-2">
+              <CardContent className="p-4 sm:p-6 lg:p-8">
+                <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
                   <div className="relative">
                     <img
                       src={t.photo}
                       alt={t.name}
-                      className="w-16 h-16 rounded-full object-cover ring-4 ring-blue-100 group-hover:ring-blue-200 transition-all"
+                      className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-full object-cover ring-2 sm:ring-4 ring-blue-100 group-hover:ring-blue-200 transition-all"
                     />
-                    <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-green-400 rounded-full border-2 border-white flex items-center justify-center">
-                      <div className="w-2 h-2 bg-white rounded-full"></div>
+                    <div className="absolute -bottom-1 -right-1 w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 bg-green-400 rounded-full border-2 border-white flex items-center justify-center">
+                      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 lg:w-2 lg:h-2 bg-white rounded-full"></div>
                     </div>
                   </div>
                   <div>
-                    <p className="font-bold text-lg text-gray-800">{t.name}</p>
-                    <p className="text-sm text-blue-600 font-medium">{t.city}</p>
+                    <p className="font-bold text-base sm:text-lg text-gray-800">{t.name}</p>
+                    <p className="text-xs sm:text-sm text-blue-600 font-medium">{t.city}</p>
                   </div>
                 </div>
-                <p className="text-gray-600 mb-6 text-lg leading-relaxed">"{t.text}"</p>
+                <p className="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base lg:text-lg leading-relaxed">"{t.text}"</p>
                 <div className="flex items-center gap-1">
                   {Array.from({ length: t.rating }).map((_, idx) => (
-                    <Star key={idx} className="w-6 h-6 text-yellow-400 fill-yellow-400" />
+                    <Star key={idx} className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-yellow-400 fill-yellow-400" />
                   ))}
                 </div>
               </CardContent>
@@ -95,41 +95,41 @@ const Testimonials = () => {
 
         {/* Trust indicators */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-8 bg-white/80 backdrop-blur rounded-2xl px-8 py-6 shadow-lg">
-            <div className="flex items-center gap-3">
-              <div className="w-4 h-4 bg-green-400 rounded-full animate-pulse"></div>
-              <span className="text-gray-700 font-semibold">Conexão ativa</span>
+          <div className="inline-flex flex-col sm:flex-row items-center gap-4 sm:gap-8 bg-white/80 backdrop-blur rounded-2xl px-4 sm:px-6 lg:px-8 py-4 sm:py-6 shadow-lg">
+            <div className="flex items-center gap-2 sm:gap-3">
+              <div className="w-3 h-3 sm:w-4 sm:h-4 bg-green-400 rounded-full animate-pulse"></div>
+              <span className="text-sm sm:text-base text-gray-700 font-semibold">Conexão ativa</span>
             </div>
-            <div className="w-px h-6 bg-gray-300"></div>
-            <div className="flex items-center gap-3">
-              <Award className="w-5 h-5 text-yellow-500" />
-              <span className="text-gray-700 font-semibold">4.9/5 avaliação</span>
+            <div className="hidden sm:block w-px h-6 bg-gray-300"></div>
+            <div className="flex items-center gap-2 sm:gap-3">
+              <Award className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-500" />
+              <span className="text-sm sm:text-base text-gray-700 font-semibold">4.9/5 avaliação</span>
             </div>
-            <div className="w-px h-6 bg-gray-300"></div>
-            <div className="flex items-center gap-3">
-              <Zap className="w-5 h-5 text-blue-500" />
-              <span className="text-gray-700 font-semibold">Suporte 24/7</span>
+            <div className="hidden sm:block w-px h-6 bg-gray-300"></div>
+            <div className="flex items-center gap-2 sm:gap-3">
+              <Zap className="w-4 h-4 sm:w-5 sm:h-5 text-blue-500" />
+              <span className="text-sm sm:text-base text-gray-700 font-semibold">Suporte 24/7</span>
             </div>
           </div>
         </div>
 
         {/* Stats Section */}
-        <div className="grid md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto">
           <div className="text-center">
-            <div className="text-3xl font-bold text-blue-600 mb-2">8.000+</div>
-            <div className="text-gray-600">Clientes Ativos</div>
+            <div className="text-2xl sm:text-3xl font-bold text-blue-600 mb-2">8.000+</div>
+            <div className="text-sm sm:text-base text-gray-600">Clientes Ativos</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl font-bold text-blue-600 mb-2">99.9%</div>
-            <div className="text-gray-600">Uptime</div>
+            <div className="text-2xl sm:text-3xl font-bold text-blue-600 mb-2">99.9%</div>
+            <div className="text-sm sm:text-base text-gray-600">Uptime</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl font-bold text-blue-600 mb-2">24/7</div>
-            <div className="text-gray-600">Suporte</div>
+            <div className="text-2xl sm:text-3xl font-bold text-blue-600 mb-2">24/7</div>
+            <div className="text-sm sm:text-base text-gray-600">Suporte</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl font-bold text-blue-600 mb-2">4.9/5</div>
-            <div className="text-gray-600">Avaliação</div>
+            <div className="text-2xl sm:text-3xl font-bold text-blue-600 mb-2">4.9/5</div>
+            <div className="text-sm sm:text-base text-gray-600">Avaliação</div>
           </div>
         </div>
       </div>
