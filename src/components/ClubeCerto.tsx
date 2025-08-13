@@ -9,25 +9,25 @@ const ClubeCerto = () => {
       icon: <ShoppingBag className="w-6 h-6" />,
       title: "Descontos exclusivos",
       description: "Em lojas, serviços e estabelecimentos parceiros",
-      image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "/imgs/clube_certo/descontos_exclusivos.png"
     },
     {
       icon: <Heart className="w-6 h-6" />,
       title: "Saúde e bem-estar",
       description: "Vantagens em saúde, educação, estética e lazer",
-      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "/imgs/clube_certo/saude-bemestar.png"
     },
     {
       icon: <Gift className="w-6 h-6" />,
       title: "Ofertas especiais",
       description: "Ofertas exclusivas direto no aplicativo",
-      image: "https://images.unsplash.com/photo-1607082349566-187342175e2f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "/imgs/clube_certo/ofertas_especiais.png"
     },
     {
       icon: <Star className="w-6 h-6" />,
       title: "Acesso antecipado",
       description: "Novidades antecipadas e condições especiais",
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "/imgs/clube_certo/acesso_antecipado.png"
     }
   ];
 
@@ -65,13 +65,13 @@ const ClubeCerto = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {benefits.map((benefit, index) => (
             <Card key={index} className="group bg-white border border-gray-200 hover:border-primary/30 hover:shadow-lg transition-all duration-300 animate-fade-in-up overflow-hidden" style={{ animationDelay: `${index * 0.1}s` }}>
-              <div className="relative h-32 overflow-hidden">
+              <div className="relative overflow-hidden">
                 <img 
                   src={benefit.image} 
                   alt={benefit.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-[150px] object-contain bg-gray-50 group-hover:scale-105 transition-transform duration-300"
+                  style={{ width: '320px', maxWidth: '100%' }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
               </div>
               <CardContent className="p-6 text-center">
                 <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-primary/10 to-brand-blue-light/10 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 -mt-8 relative z-10 bg-white shadow-lg">

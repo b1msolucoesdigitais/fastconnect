@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 import { useState } from "react";
+import { config, getWhatsAppUrl } from "@/lib/config";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,6 +17,12 @@ const Header = () => {
     { href: "#app", label: "Aplicativo" },
     { href: "#contato", label: "Contato" },
   ];
+
+  const handleWhatsAppSignup = () => {
+    const message = "Olá! Gostaria de assinar um plano da FAST Connect. Podem me ajudar?";
+    const whatsappUrl = getWhatsAppUrl(message);
+    window.open(whatsappUrl, '_blank');
+  };
 
   return (
     <header className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-200">
@@ -45,7 +52,10 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button className="bg-gradient-to-r from-primary to-brand-blue-light hover:from-brand-blue-dark hover:to-primary transition-all duration-300">
+            <Button 
+              className="bg-gradient-to-r from-primary to-brand-blue-light hover:from-brand-blue-dark hover:to-primary transition-all duration-300"
+              onClick={handleWhatsAppSignup}
+            >
               Assinar Agora
             </Button>
           </div>
@@ -73,7 +83,10 @@ const Header = () => {
                   {item.label}
                 </a>
               ))}
-              <Button className="mt-4 bg-gradient-to-r from-primary to-brand-blue-light hover:from-brand-blue-dark hover:to-primary transition-all duration-300">
+              <Button 
+                className="mt-4 bg-gradient-to-r from-primary to-brand-blue-light hover:from-brand-blue-dark hover:to-primary transition-all duration-300"
+                onClick={handleWhatsAppSignup}
+              >
                 Assinar Agora
               </Button>
             </nav>

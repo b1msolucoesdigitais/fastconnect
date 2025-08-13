@@ -3,8 +3,19 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
+import { config, getWhatsAppUrl } from "@/lib/config";
 
 const Contact = () => {
+  const handleWhatsAppContact = () => {
+    const message = "Olá! Gostaria de saber mais sobre os planos da FAST Connect. Podem me ajudar?";
+    const whatsappUrl = getWhatsAppUrl(message);
+    window.open(whatsappUrl, '_blank');
+  };
+
+  const handlePhoneContact = () => {
+    window.open(config.urls.phone, '_blank');
+  };
+
   return (
     <section id="contato" className="py-20 bg-gradient-to-b from-background to-muted/20">
       <div className="container mx-auto px-4">
@@ -39,7 +50,7 @@ const Contact = () => {
                     <Phone className="w-6 h-6 text-primary" />
                   </div>
                   <h4 className="font-semibold mb-2 text-foreground">Telefone</h4>
-                  <p className="text-primary font-semibold">(31) 98694-7249</p>
+                  <p className="text-primary font-semibold">{config.contact.phoneFormatted}</p>
                   <p className="text-sm text-muted-foreground">Seg-Sex: 09:00 às 18:00</p>
                 </CardContent>
               </Card>
@@ -50,7 +61,7 @@ const Contact = () => {
                     <MessageCircle className="w-6 h-6 text-primary" />
                   </div>
                   <h4 className="font-semibold mb-2 text-foreground">WhatsApp</h4>
-                  <p className="text-primary font-semibold">(31) 98694-7249</p>
+                  <p className="text-primary font-semibold">{config.contact.whatsappFormatted}</p>
                   <p className="text-sm text-muted-foreground">24h online</p>
                 </CardContent>
               </Card>
@@ -71,11 +82,10 @@ const Contact = () => {
                   <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-brand-blue-light/20 rounded-lg flex items-center justify-center mx-auto mb-4">
                     <MapPin className="w-6 h-6 text-primary" />
                   </div>
-                  <h4 className="font-semibold mb-2 text-foreground">Endereço</h4>
-                  <p className="text-sm text-muted-foreground">
+                  <h4 className="text-sm text-muted-foreground">
                     Avenida Galiléia, 652, Canaã<br />
                     Ipatinga/MG
-                  </p>
+                  </h4>
                 </CardContent>
               </Card>
             </div>
@@ -91,7 +101,10 @@ const Contact = () => {
                   Seg - Sex: 09:00 às 18:00<br />
                   Sábado: 09:00 às 12h00
                 </p>
-                <Button className="bg-gradient-to-r from-primary to-brand-blue-light hover:from-brand-blue-dark hover:to-primary">
+                <Button 
+                  className="bg-gradient-to-r from-primary to-brand-blue-light hover:from-brand-blue-dark hover:to-primary"
+                  onClick={handleWhatsAppContact}
+                >
                   Falar Agora
                 </Button>
               </CardContent>

@@ -5,6 +5,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Check, Zap, Wifi, Users, Smartphone, Gauge, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState, useCallback } from "react";
 import useEmblaCarousel from 'embla-carousel-react';
+import { config, getWhatsAppUrl } from "@/lib/config";
 
 const Plans = () => {
   const [selectedPlans, setSelectedPlans] = useState<{ [key: string]: boolean }>({});
@@ -116,6 +117,14 @@ const Plans = () => {
 
   const formatPrice = (price: number) => {
     return `R$ ${price.toFixed(2).replace('.', ',')}`;
+  };
+
+  const handleWhatsAppSignup = (plan: any) => {
+    const basePrice = plan.basePrice;
+    const hasCellPlan = selectedPlans[plan.id] || false;
+    const message = config.messages.plan(plan.name, basePrice, hasCellPlan);
+    const whatsappUrl = getWhatsAppUrl(message);
+    window.open(whatsappUrl, '_blank');
   };
 
   // Embla Carousel setup
@@ -285,6 +294,7 @@ const Plans = () => {
                           <Button 
                             className={`w-full bg-primary text-white hover:bg-primary/90 transition-all duration-300`}
                             size="lg"
+                            onClick={() => handleWhatsAppSignup(plan)}
                           >
                             Assinar Agora
                           </Button>
@@ -314,14 +324,6 @@ const Plans = () => {
 
         </div>
 
-        <div className="mt-12 text-center">
-          <p className="text-gray-600 mb-4">
-            Todos os planos incluem Clube Certo e aplicativo Fast Fibra
-          </p>
-          <Button variant="outline" size="lg" className="border-primary text-primary hover:bg-primary hover:text-white">
-            Ver todos os benefícios
-          </Button>
-        </div>
       </div>
     </section>
   );

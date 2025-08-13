@@ -8,21 +8,21 @@ const Features = () => {
       title: "Ultra velocidade",
       description: "Rápida, estável e sem enrolação. É Fast na rede. É Fast com você.",
       stats: "Fibra 100%",
-      image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "/imgs/ultravelocidade.png"
     },
     {
       icon: <Shield className="w-8 h-8" />,
       title: "Conexão de verdade",
       description: "Conexão de verdade é aquela que funciona quando você mais precisa.",
       stats: "12 anos",
-      image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "/imgs/conexaodeverdade.png"
     },
     {
       icon: <Headphones className="w-8 h-8" />,
       title: "Atendimento humanizado",
       description: "Oferecemos um atendimento humanizado, que valoriza cada cliente como único.",
       stats: "8K+ clientes",
-      image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "/imgs/atendimento.png"
     }
   ];
 

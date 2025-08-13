@@ -1,7 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Play, Tv, Smartphone, Monitor, Wifi } from "lucide-react";
+import { Play, Wifi, RefreshCw, Smartphone } from "lucide-react";
 
 const Streaming = () => {
   const platforms = [
@@ -10,39 +10,47 @@ const Streaming = () => {
       logo: "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
     },
     { 
-      name: "Amazon Prime", 
-      logo: "https://upload.wikimedia.org/wikipedia/commons/1/11/Amazon_Prime_logo.svg"
+      name: "Prime Video", 
+      logo: "https://upload.wikimedia.org/wikipedia/commons/1/11/Amazon_Prime_Video_logo.svg"
     },
     { 
       name: "Disney+", 
       logo: "https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg"
     },
     { 
-      name: "YouTube", 
-      logo: "https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_logo_%282017%29.svg"
+      name: "Max", 
+      logo: "https://upload.wikimedia.org/wikipedia/commons/1/17/HBO_Max_Logo.svg"
     },
     { 
-      name: "Spotify", 
+      name: "Globoplay", 
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Globoplay_logo.svg/2560px-Globoplay_logo.svg.png"
+    },
+    { 
+      name: "Paramount+", 
+      logo: "https://logodownload.org/wp-content/uploads/2021/03/paramount-plus-logo-1.png"
+    },
+    { 
+      name: "YouTube Premium", 
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Logo_of_YouTube_%282015-2017%29.svg/1280px-Logo_of_YouTube_%282015-2017%29.svg.png"
+    },
+    { 
+      name: "Deezer Premium", 
       logo: "https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg"
-    },
-    { 
-      name: "Twitch", 
-      logo: "https://upload.wikimedia.org/wikipedia/commons/2/26/Twitch_logo.svg"
     }
   ];
 
   const benefits = [
     {
+      icon: <RefreshCw className="w-6 h-6" />,
+      text: "Troque de streaming todo mês sem custo adicional"
+    },
+    {
+      icon: <Smartphone className="w-6 h-6" />,
+      text: "Assista em todos os dispositivos simultaneamente"
+    },
+    {
       icon: <Wifi className="w-6 h-6" />,
-      text: "Sem quedas, sem buffering, sem estresse"
-    },
-    {
-      icon: <Monitor className="w-6 h-6" />,
-      text: "Assista em todos os dispositivos ao mesmo tempo"
-    },
-    {
-      icon: <Play className="w-6 h-6" />,
-      text: "Compatível com todas as plataformas"
+      text: "Conexão estável para streaming sem interrupções"
     }
   ];
 
@@ -53,9 +61,9 @@ const Streaming = () => {
       <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-primary/20 to-transparent rounded-full blur-3xl" />
       
       {/* Background Image */}
-      <div className="absolute inset-0 opacity-10">
+      <div className="absolute inset-0 opacity-30">
         <img 
-          src="https://images.unsplash.com/photo-1574267432553-4b4628081c31?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+          src="/imgs/bg_streaming.png"
           alt="Streaming background"
           className="w-full h-full object-cover"
         />
@@ -70,60 +78,42 @@ const Streaming = () => {
           
           <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
             <span className="bg-gradient-to-r from-primary to-brand-blue-light bg-clip-text text-transparent">
-              Streaming sem travar?
+              Escolha seu streaming
             </span>
             <br />
-            Só com Fast Fibra.
+            E troque quando quiser!
           </h2>
           
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Assista ao que você ama com ultravelocidade, estabilidade real e zero interrupção. 
-            Com a Fast, sua maratona de filmes, séries, esportes ou lives acontece em alta performance — 
-            imagem perfeita, som limpo e conexão estável do início ao fim.
+            Com a Fast Fibra, você tem acesso aos melhores streamings do mercado. 
+            Escolha entre Netflix, Disney+, Prime Video, Max e muito mais. 
+            A cada mês, troque de plataforma sem custo adicional e aproveite o que há de melhor em entretenimento.
           </p>
         </div>
 
-        {/* Platforms */}
-        <div className="grid grid-cols-3 md:grid-cols-6 gap-4 mb-16 max-w-2xl mx-auto">
+        {/* Platforms - Novo Layout Compacto */}
+        <div className="flex flex-wrap justify-center items-center gap-8 mb-6 max-w-5xl mx-auto">
           {platforms.map((platform, index) => (
-            <Card key={index} className="bg-white/10 backdrop-blur border-white/20 hover:bg-white/20 transition-all duration-300 group">
-              <CardContent className="p-4 text-center">
-                <div className="mb-2 group-hover:scale-110 transition-transform duration-300">
-                  {platform.name === "Netflix" && (
-                    <div className="w-12 h-12 mx-auto bg-red-600 rounded flex items-center justify-center">
-                      <span className="text-white font-bold text-lg">N</span>
-                    </div>
-                  )}
-                  {platform.name === "Amazon Prime" && (
-                    <div className="w-12 h-12 mx-auto bg-blue-600 rounded flex items-center justify-center">
-                      <span className="text-white font-bold text-xs">PRIME</span>
-                    </div>
-                  )}
-                  {platform.name === "Disney+" && (
-                    <div className="w-12 h-12 mx-auto bg-blue-800 rounded flex items-center justify-center">
-                      <span className="text-white font-bold text-sm">D+</span>
-                    </div>
-                  )}
-                  {platform.name === "YouTube" && (
-                    <div className="w-12 h-12 mx-auto bg-red-500 rounded flex items-center justify-center">
-                      <span className="text-white text-xl">▶</span>
-                    </div>
-                  )}
-                  {platform.name === "Spotify" && (
-                    <div className="w-12 h-12 mx-auto bg-green-500 rounded-full flex items-center justify-center">
-                      <span className="text-white text-xl">♪</span>
-                    </div>
-                  )}
-                  {platform.name === "Twitch" && (
-                    <div className="w-12 h-12 mx-auto bg-purple-600 rounded flex items-center justify-center">
-                      <span className="text-white font-bold text-sm">T</span>
-                    </div>
-                  )}
-                </div>
-                <p className="text-xs text-gray-300">{platform.name}</p>
-              </CardContent>
-            </Card>
+            <div 
+              key={index} 
+              className="group cursor-pointer transition-all duration-300 hover:scale-110"
+            >
+              <div className="w-20 h-20 bg-white rounded-2xl shadow-lg flex items-center justify-center p-3 hover:shadow-xl transition-shadow duration-300">
+                <img 
+                  src={platform.logo} 
+                  alt={`Logo ${platform.name}`}
+                  className="w-full h-full object-contain"
+                />
+              </div>
+            </div>
           ))}
+        </div>
+        
+        {/* Texto "e muito mais..." */}
+        <div className="text-center mb-16">
+          <p className="text-lg text-gray-400 font-medium">
+            ...e muito mais!
+          </p>
         </div>
 
         {/* Benefits */}
@@ -138,32 +128,16 @@ const Streaming = () => {
           ))}
         </div>
 
-        {/* Device Icons */}
-        <div className="flex justify-center items-center gap-8 mb-12">
-          <div className="text-center group">
-            <Tv className="w-12 h-12 mx-auto mb-2 text-primary group-hover:scale-110 transition-transform duration-300" />
-            <p className="text-sm text-gray-400">Smart TV</p>
-          </div>
-          <div className="text-center group">
-            <Smartphone className="w-12 h-12 mx-auto mb-2 text-primary group-hover:scale-110 transition-transform duration-300" />
-            <p className="text-sm text-gray-400">Celular</p>
-          </div>
-          <div className="text-center group">
-            <Monitor className="w-12 h-12 mx-auto mb-2 text-primary group-hover:scale-110 transition-transform duration-300" />
-            <p className="text-sm text-gray-400">Computador</p>
-          </div>
-        </div>
-
         {/* CTA */}
         <div className="text-center">
           <p className="text-2xl font-bold mb-6 text-gray-200">
-            Streaming de verdade pede internet de verdade.
+            Streaming flexível com internet de verdade.
           </p>
           <Button 
             size="lg" 
             className="bg-gradient-to-r from-primary to-brand-blue-light hover:from-brand-blue-dark hover:to-primary transition-all duration-300 shadow-lg hover:shadow-xl text-lg px-8 py-4"
           >
-            SEJA FAST!
+            ASSINAR AGORA!
           </Button>
         </div>
       </div>
