@@ -92,16 +92,8 @@ const Footer = () => {
             <p className="text-sm text-gray-400">
               © 2025 Fast Connect. Todos os direitos reservados.
             </p>
-            <div className="flex space-x-6 text-sm">
-              <a href="#" className="text-gray-400 hover:text-primary transition-colors">
-                Política de Privacidade
-              </a>
-              <a href="#" className="text-gray-400 hover:text-primary transition-colors">
-                Termos de Uso
-              </a>
-              <a href="#" className="text-gray-400 hover:text-primary transition-colors">
-                LGPD
-              </a>
+            <div className="flex text-sm">
+              Criado com 💙 por &nbsp;<a href="#" className="text-gray-400 hover:text-primary transition-colors">GiZ Digital</a>
             </div>
           </div>
         </div>
