@@ -1,14 +1,23 @@
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
+# Fast Connect - Robots.txt
+# https://fastconnect.net.br
 
 User-agent: *
 Allow: /
+
+# Sitemap
+Sitemap: https://fastconnect.net.br/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Disallow admin areas (if any)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp/
+
+# Allow important files
+Allow: /imgs/
+Allow: /css/
+Allow: /js/
+Allow: /*.html
+Allow: /*.xml
