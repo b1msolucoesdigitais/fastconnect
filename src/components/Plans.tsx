@@ -22,7 +22,7 @@ const Plans = () => {
       name: "Deezer - Música e podcasts"
     },
     looke: {
-      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Globoplay_logo.svg/2560px-Globoplay_logo.svg.png",
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Looke_logo.svg/1200px-Looke_logo.svg.png",
       name: "Looke - Filmes e séries"
     },
     sky: {
