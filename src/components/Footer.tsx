@@ -14,8 +14,8 @@ const Footer = () => {
           <div className="space-y-4">
             <div className="flex items-center">
               <img 
-                src="https://sites.b1m.digital/fastconnect/wp-content/uploads/2025/05/10-dias-_02.png" 
-                alt="Fast Connect Logo" 
+                src="/imgs/logo.png" 
+                alt="Fast Connect" 
                 className="h-20 w-auto"
               />
             </div>

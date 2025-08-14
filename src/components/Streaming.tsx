@@ -133,12 +133,14 @@ const Streaming = () => {
           <p className="text-2xl font-bold mb-6 text-gray-200">
             Streaming flexível com internet de verdade.
           </p>
-          <Button 
-            size="lg" 
-            className="bg-gradient-to-r from-primary to-brand-blue-light hover:from-brand-blue-dark hover:to-primary transition-all duration-300 shadow-lg hover:shadow-xl text-lg px-8 py-4"
-          >
-            ASSINAR AGORA!
-          </Button>
+          <a href="#planos">
+            <Button 
+              size="lg" 
+              className="bg-gradient-to-r from-primary to-brand-blue-light hover:from-brand-blue-dark hover:to-primary transition-all duration-300 shadow-lg hover:shadow-xl text-lg px-8 py-4"
+            >
+              ASSINAR AGORA!
+            </Button>
+          </a>
         </div>
       </div>
     </section>

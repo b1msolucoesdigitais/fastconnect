@@ -31,7 +31,7 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center">
             <img 
-              src="https://sites.b1m.digital/fastconnect/wp-content/uploads/2025/05/10-dias-_02.png" 
+              src="/imgs/logo.png" 
               alt="Fast Connect Logo" 
               className="h-14 w-auto"
             />

@@ -50,11 +50,6 @@ const AppSection = () => {
       description: "Com seu CPF ou CNPJ e a senha cadastrada"
     },
     {
-      icon: <Menu className="w-6 h-6" />,
-      title: "Navegue pelo menu",
-      description: "Para acessar os serviços disponíveis"
-    },
-    {
       icon: <CheckCircle className="w-6 h-6" />,
       title: "Pronto!",
       description: "Tudo o que você precisa em um só lugar"
@@ -107,12 +102,14 @@ const AppSection = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <Button 
-                size="lg" 
-                className="bg-gradient-to-r from-primary to-brand-blue-light hover:from-brand-blue-dark hover:to-primary transition-all duration-300 shadow-lg hover:shadow-xl text-lg px-8 py-4"
-              >
-                SEJA FAST!
-              </Button>
+              <a href="#planos">
+                <Button 
+                  size="lg" 
+                  className="bg-gradient-to-r from-primary to-brand-blue-light hover:from-brand-blue-dark hover:to-primary transition-all duration-300 shadow-lg hover:shadow-xl text-lg px-8 py-4"
+                >
+                  SEJA FAST!
+                </Button>
+              </a>
               <div className="text-center sm:text-left">
                 <p className="text-sm text-gray-400">
                   Seguro, rápido e fácil de usar
@@ -131,6 +128,23 @@ const AppSection = () => {
                 <h3 className="text-2xl font-bold mb-6 text-center text-white">
                   Como usar? Passo a passo:
                 </h3>
+                
+                                 {/* Video Section */}
+                 <div className="mb-8 flex justify-center">
+                   <div className="relative w-64 h-96 rounded-2xl overflow-hidden shadow-2xl border-2 border-primary/30">
+                     <video 
+                       className="w-full h-full object-cover"
+                       autoPlay 
+                       muted 
+                       loop 
+                       playsInline
+                       poster="/imgs/placeholder.svg"
+                     >
+                       <source src="/imgs/app.mp4" type="video/mp4" />
+                       Seu navegador não suporta vídeos.
+                     </video>
+                   </div>
+                 </div>
                 
                 <div className="space-y-6">
                   {steps.map((step, index) => (
@@ -186,7 +200,7 @@ const AppSection = () => {
                       className="bg-white/10 border-white/20 hover:bg-white/20 hover:border-white/40 transition-all duration-300 text-white"
                     >
                       <div className="flex items-center gap-2">
-                        <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                        <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
                           <path d="M18.71,19.5C17.88,20.74 17,21.95 15.66,21.97C14.32,22 13.89,21.18 12.37,21.18C10.84,21.18 10.37,21.95 9.1,22C7.79,22.05 6.8,20.68 5.96,19.47C4.25,17 2.94,12.45 4.7,9.39C5.57,7.87 7.13,6.91 8.82,6.88C10.1,6.86 11.32,7.75 12.11,7.75C12.89,7.75 14.37,6.68 15.92,6.84C16.57,6.87 18.39,7.1 19.56,8.82C19.47,8.88 17.39,10.1 17.41,12.63C17.44,15.65 20.06,16.66 20.09,16.67C20.06,16.74 19.67,18.11 18.71,19.5M13,3.5C13.73,2.67 14.94,2.04 15.94,2C16.07,3.17 15.6,4.35 14.9,5.19C14.21,6.04 13.07,6.7 11.95,6.61C11.8,5.46 12.36,4.26 13,3.5Z"/>
                         </svg>
                         <div className="text-left">
