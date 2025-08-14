@@ -6,98 +6,184 @@ import { Check, Zap, Wifi, Users, Smartphone, Gauge, ChevronLeft, ChevronRight }
 import { useState, useCallback } from "react";
 import useEmblaCarousel from 'embla-carousel-react';
 import { config, getWhatsAppUrl } from "@/lib/config";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 const Plans = () => {
   const [selectedPlans, setSelectedPlans] = useState<{ [key: string]: boolean }>({});
 
+  // Logos dos serviços
+  const serviceLogos = {
+    ubook: {
+      url: "https://cdn-production.frankfurtrights.com/Content/Upload/CompanyLogos/6893.png",
+      name: "Ubook - Livros digitais e audiolivros"
+    },
+    deezer: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg",
+      name: "Deezer - Música e podcasts"
+    },
+    looke: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Globoplay_logo.svg/2560px-Globoplay_logo.svg.png",
+      name: "Looke - Filmes e séries"
+    },
+    sky: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Globoplay_logo.svg/2560px-Globoplay_logo.svg.png",
+      name: "SKY com Globo - TV ao vivo e streaming"
+    },
+    max: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/1/17/HBO_Max_Logo.svg",
+      name: "MAX (HBO) - Filmes e séries premium"
+    },
+    kaspersky: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Kaspersky_logo.svg/1280px-Kaspersky_logo.svg.png",
+      name: "Kaspersky - Antivírus e segurança"
+    },
+    "clube-certo": {
+      url: "https://clubecerto.com.br/images/empresas/logo/clubecerto.png",
+      name: "Clube Certo - Benefícios exclusivos"
+    },
+    noping: {
+      url: "https://cdn-comparador.minhaconexao.com.br/cms/2022/08/08/62f11d6307947no_ping_fundo_branco_logo.png",
+      name: "Noping - Redução de ping para games"
+    }
+  };
+
   const plans = [
     {
-      id: "240mb",
-      name: "Fast 240MB",
-      speed: "240",
+      id: "fast-essencial-1",
+      name: "FAST ESSENCIAL I",
+      speed: "300",
       basePrice: 79.90,
       price: "R$ 79,90",
-      description: "Ideal para casa",
+      description: "Wi-Fi 5",
       features: [
-        "Wi-Fi grátis",
+        "Wi-Fi 5 grátis",
         "Suporte 24h",
         "Instalação grátis"
       ],
       popular: false
     },
     {
-      id: "360mb",
-      name: "Fast 360MB",
-      speed: "360",
+      id: "fast-essencial-2",
+      name: "FAST ESSENCIAL II",
+      speed: "450",
       basePrice: 89.90,
       price: "R$ 89,90",
-      description: "Para pequenas famílias",
+      description: "Wi-Fi 5",
       features: [
-        "Wi-Fi grátis",
+        "Wi-Fi 5 grátis",
         "Suporte 24h",
         "Instalação grátis"
       ],
       popular: false
     },
     {
-      id: "560mb",
-      name: "Fast 560MB",
-      speed: "560",
-      basePrice: 99.90,
-      price: "R$ 99,90",
-      description: "Para toda família",
+      id: "fast-casa-conectada",
+      name: "FAST CASA CONECTADA",
+      speed: "500",
+      basePrice: 109.90,
+      price: "R$ 109,90",
+      description: "Wi-Fi 6 Mesh Incluso",
       features: [
-        "Wi-Fi grátis",
-        "Suporte 24h", 
-        "Instalação grátis",
-        { logos: ["netflix"] }
+        "Wi-Fi 6 Mesh grátis",
+        "Suporte 24h",
+        "Instalação grátis"
       ],
       popular: false
     },
     {
-      id: "600mb",
-      name: "ULTRA FAST 600MB",
+      id: "fast-music-1",
+      name: "FAST MUSIC I",
+      speed: "450",
+      basePrice: 99.90,
+      price: "R$ 99,90",
+      description: "Ubook + Deezer",
+      features: [
+        "Wi-Fi 5 grátis",
+        "Suporte 24h",
+        "Instalação grátis"
+      ],
+      logos: ["ubook", "deezer"],
+      popular: false
+    },
+    {
+      id: "fast-music-2",
+      name: "FAST MUSIC II",
       speed: "600",
       basePrice: 119.90,
       price: "R$ 119,90",
-      description: "Tecnologia Mesh",
+      description: "Ubook + Deezer + Kaspersky + Clube Certo",
       features: [
-        "Wi-Fi Mesh grátis",
-        "2 Roteadores incluídos",
+        "Kaspersky Antivírus",
+        "Clube Certo",
+        "Wi-Fi 6 grátis",
         "Suporte 24h",
-        "Instalação grátis",
-        { logos: ["netflix", "prime"] }
+        "Instalação grátis"
       ],
+      logos: ["ubook", "deezer", "kaspersky", "clube-certo"],
       popular: false
     },
     {
-      id: "720mb",
-      name: "Fast 720MB",
-      speed: "720",
-      basePrice: 109.90,
-      price: "R$ 109,90",
-      description: "Alta performance",
+      id: "fast-streaming-1",
+      name: "FAST STREAMING I",
+      speed: "450",
+      basePrice: 104.90,
+      price: "R$ 104,90",
+      description: "Ubook + SKY com Globo + Clube Certo",
       features: [
-        "Wi-Fi 6 grátis",
+        "Clube Certo",
+        "Wi-Fi 5 grátis",
         "Suporte 24h",
-        "Instalação grátis",
-        { logos: ["netflix", "prime"] }
+        "Instalação grátis"
       ],
+      logos: ["ubook", "sky", "clube-certo"],
       popular: false
     },
     {
-      id: "1000mb",
-      name: "Fast 1GB",
-      speed: "1000",
-      basePrice: 159.90,
-      price: "R$ 159,90", 
-      description: "Ultra performance",
+      id: "fast-streaming-2",
+      name: "FAST STREAMING II",
+      speed: "600",
+      basePrice: 149.90,
+      price: "R$ 149,90",
+      description: "Ubook + Looke + SKY com Globo + MAX",
       features: [
         "Wi-Fi 6 grátis",
+        "Suporte 24h",
+        "Instalação grátis"
+      ],
+      logos: ["ubook", "looke", "sky", "max"],
+      popular: false
+    },
+    {
+      id: "fast-premium",
+      name: "FAST PREMIUM",
+      speed: "850",
+      basePrice: 224.90,
+      price: "R$ 224,90",
+      description: "Pacote Completo + Wi-Fi 6 Mesh",
+      features: [
+        "Kaspersky + Clube Certo",
+        "Wi-Fi 6 Mesh grátis",
         "Suporte prioritário 24h",
-        "Instalação grátis",
-        { logos: ["netflix", "prime", "disney"] }
+        "Instalação grátis"
       ],
+      logos: ["ubook", "deezer", "looke", "kaspersky", "sky", "max", "clube-certo"],
+      popular: true
+    },
+    {
+      id: "fast-gamer",
+      name: "FAST GAMER",
+      speed: "850",
+      basePrice: 139.90,
+      price: "R$ 139,90",
+      description: "Ubook + Noping + IP Fixo",
+      features: [
+        "Noping (Redução de Ping)",
+        "IP Fixo dedicado",
+        "Wi-Fi 6 grátis",
+        "Suporte especializado 24h",
+        "Instalação grátis"
+      ],
+      logos: ["ubook", "noping"],
       popular: false
     }
   ];
@@ -166,75 +252,71 @@ const Plans = () => {
                 <div key={index} className="embla__slide flex-[0_0_100%] min-w-0 sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] px-2 sm:px-3 lg:px-4">
                   <div className="p-2 sm:p-3 lg:p-4">
                     <Card 
-                      className={`relative group transition-all duration-300 hover:shadow-2xl h-full bg-gradient-to-br from-blue-50 to-blue-100 border-2 border-blue-200 hover:border-primary/50`}
+                      className={`relative group transition-all duration-300 hover:shadow-2xl h-full bg-gradient-to-br from-blue-50 to-blue-100 border-2 border-blue-200 hover:border-primary/50 ${
+                        plan.popular ? 'ring-2 ring-primary ring-opacity-50' : ''
+                      }`}
                     >
 
                       
                                                                     <CardHeader className="text-center pb-4">
-                         <CardTitle className={`text-2xl font-bold mb-2 text-gray-900`}>
+                         <CardTitle className="text-2xl font-bold mb-2 text-gray-900">
                            {plan.name}
                          </CardTitle>
                         
-                        <p className={`mb-4 ${
-                          plan.popular ? 'text-blue-100' : 'text-gray-600'
-                        }`}>
+                        <p className="mb-4 text-gray-600">
                           {plan.description}
                         </p>
                         
                         <div className="text-center">
-                          <span className={`text-3xl font-bold ${
-                            plan.popular ? 'text-white' : 'text-primary'
-                          }`}>
+                          <span className="text-3xl font-bold text-primary">
                             {plan.speed}MB
                           </span>
-                          <p className={`text-sm ${
-                            plan.popular ? 'text-blue-100' : 'text-gray-600'
-                          }`}>
+                          <p className="text-sm text-gray-600">
                             de velocidade
                           </p>
                         </div>
                       </CardHeader>
                       
                       <CardContent className="pt-4 flex flex-col h-full">
-                                                 <ul className="space-y-3 mb-6 flex-grow">
+                                                                         <ul className="space-y-3 mb-6 flex-grow">
                           {plan.features.map((feature, featureIndex) => (
                             <li key={featureIndex} className="flex items-center">
-                              <Check className={`w-5 h-5 mr-3 flex-shrink-0 text-primary`} />
-                              {typeof feature === 'string' ? (
-                                <span className={`text-gray-700`}>
-                                  {feature}
-                                </span>
-                              ) : feature.logos ? (
-                                <div className="flex items-center gap-2">
-                                  <span className={`text-sm font-medium text-gray-600`}>
-                                    Streamings inclusos:
-                                  </span>
-                                  <div className="flex gap-1">
-                                    {feature.logos.map((logo, logoIndex) => (
-                                      <div key={logoIndex}>
-                                        {logo === "netflix" && (
-                                          <div className="w-5 h-5 bg-red-600 rounded flex items-center justify-center">
-                                            <span className="text-white font-bold text-xs">N</span>
-                                          </div>
-                                        )}
-                                        {logo === "prime" && (
-                                          <div className="w-5 h-5 bg-blue-600 rounded flex items-center justify-center">
-                                            <span className="text-white font-bold text-xs">P</span>
-                                          </div>
-                                        )}
-                                        {logo === "disney" && (
-                                          <div className="w-5 h-5 bg-blue-800 rounded flex items-center justify-center">
-                                            <span className="text-white font-bold text-xs">D+</span>
-                                          </div>
-                                        )}
-                                      </div>
-                                    ))}
-                                  </div>
-                                </div>
-                              ) : null}
+                              <Check className="w-5 h-5 mr-3 flex-shrink-0 text-primary" />
+                              <span className="text-gray-700">
+                                {feature}
+                              </span>
                             </li>
                           ))}
                         </ul>
+
+                        {/* Streaming Logos */}
+                        {plan.logos && plan.logos.length > 0 && (
+                          <div className="mb-6 p-4 bg-white/60 rounded-lg border border-blue-200">
+                            <p className="text-sm font-medium text-gray-600 mb-3 text-center">
+                              Serviços inclusos:
+                            </p>
+                            <TooltipProvider>
+                              <div className="flex flex-wrap justify-center gap-2">
+                                {plan.logos.map((logo, logoIndex) => (
+                                  <Tooltip key={logoIndex}>
+                                    <TooltipTrigger asChild>
+                                      <div className="w-8 h-8 bg-white rounded-lg shadow-sm flex items-center justify-center p-1 cursor-pointer hover:shadow-md transition-shadow duration-200">
+                                        <img 
+                                          src={serviceLogos[logo as keyof typeof serviceLogos].url} 
+                                          alt={serviceLogos[logo as keyof typeof serviceLogos].name}
+                                          className="w-full h-full object-contain"
+                                        />
+                                      </div>
+                                    </TooltipTrigger>
+                                    <TooltipContent>
+                                      <p>{serviceLogos[logo as keyof typeof serviceLogos].name}</p>
+                                    </TooltipContent>
+                                  </Tooltip>
+                                ))}
+                              </div>
+                            </TooltipProvider>
+                          </div>
+                        )}
 
                         {/* Mobile Plan Checkbox */}
                         <div className={`mb-6 p-4 rounded-lg border bg-white/60 border-blue-200`}>
@@ -258,16 +340,16 @@ const Plans = () => {
                         {/* Price and Button Section */}
                         <div className="space-y-4">
                           <div className="text-center">
-                            <span className={`text-4xl font-bold text-gray-900`}>
+                            <span className="text-4xl font-bold text-gray-900">
                               {formatPrice(calculateTotalPrice(plan))}
                             </span>
-                            <span className={`text-gray-600`}>
+                            <span className="text-gray-600">
                               /mês
                             </span>
                           </div>
                           
                           <Button 
-                            className={`w-full bg-primary text-white hover:bg-primary/90 transition-all duration-300`}
+                            className="w-full bg-primary text-white hover:bg-primary/90 transition-all duration-300"
                             size="lg"
                             onClick={() => handleWhatsAppSignup(plan)}
                           >
