@@ -62,7 +62,7 @@ const Footer = () => {
             <div className="space-y-3 text-sm">
               <div className="flex items-center space-x-2">
                 <Phone className="w-4 h-4 text-primary" />
-                <span className="text-gray-300">(31) 98694-7249</span>
+                <span className="text-gray-300">(31) 3825-9149</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="w-4 h-4 text-primary" />
@@ -71,15 +71,15 @@ const Footer = () => {
               <div className="flex items-start space-x-2">
                 <MapPin className="w-4 h-4 text-primary mt-0.5" />
                 <span className="text-gray-300">
-                  Avenida Galiléia, 652, Canaã<br />
+                  Avenida José Selim de Sales, 1548, Canaã<br />
                   Ipatinga/MG
                 </span>
               </div>
               <div className="flex items-start space-x-2">
                 <Clock className="w-4 h-4 text-primary mt-0.5" />
                 <span className="text-gray-300">
-                  Seg - Sex: 09:00 às 18:00<br />
-                  Sábado: 09:00 às 12h00
+                  Seg - Sex: 08:00 às 18:00<br />
+                  Sábado: 08:00 às 12h00
                 </span>
               </div>
             </div>

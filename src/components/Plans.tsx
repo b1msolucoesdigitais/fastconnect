@@ -18,7 +18,7 @@ const Plans = () => {
       name: "Ubook - Livros digitais e audiolivros"
     },
     deezer: {
-      url: "https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg",
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Deezer_logo%2C_2023.svg/1280px-Deezer_logo%2C_2023.svg.png",
       name: "Deezer - Música e podcasts"
     },
     looke: {
@@ -30,8 +30,8 @@ const Plans = () => {
       name: "SKY com Globo - TV ao vivo e streaming"
     },
     max: {
-      url: "https://upload.wikimedia.org/wikipedia/commons/1/17/HBO_Max_Logo.svg",
-      name: "MAX (HBO) - Filmes e séries premium"
+      url: "https://upload.wikimedia.org/wikipedia/commons/d/de/HBO_logo.svg",
+      name: "HBO - Filmes e séries premium"
     },
     kaspersky: {
       url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Kaspersky_logo.svg/1280px-Kaspersky_logo.svg.png",

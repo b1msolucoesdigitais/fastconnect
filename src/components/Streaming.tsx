@@ -6,36 +6,20 @@ import { Play, Wifi, RefreshCw, Smartphone } from "lucide-react";
 const Streaming = () => {
   const platforms = [
     { 
-      name: "Netflix", 
-      logo: "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
+      name: "Sky", 
+      logo: "https://logodownload.org/wp-content/uploads/2014/09/sky-logo-01.png"
     },
     { 
-      name: "Prime Video", 
-      logo: "https://upload.wikimedia.org/wikipedia/commons/1/11/Amazon_Prime_Video_logo.svg"
-    },
-    { 
-      name: "Disney+", 
-      logo: "https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg"
-    },
-    { 
-      name: "Max", 
-      logo: "https://upload.wikimedia.org/wikipedia/commons/1/17/HBO_Max_Logo.svg"
-    },
-    { 
-      name: "Globoplay", 
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Globoplay_logo.svg/2560px-Globoplay_logo.svg.png"
-    },
-    { 
-      name: "Paramount+", 
-      logo: "https://logodownload.org/wp-content/uploads/2021/03/paramount-plus-logo-1.png"
-    },
-    { 
-      name: "YouTube Premium", 
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Logo_of_YouTube_%282015-2017%29.svg/1280px-Logo_of_YouTube_%282015-2017%29.svg.png"
+      name: "HBO", 
+      logo: "https://upload.wikimedia.org/wikipedia/commons/d/de/HBO_logo.svg"
     },
     { 
       name: "Deezer Premium", 
-      logo: "https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg"
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Deezer_logo%2C_2023.svg/1280px-Deezer_logo%2C_2023.svg.png"
+    },
+    {
+      name: "Looke - Filmes e séries",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Looke_logo.svg/1200px-Looke_logo.svg.png"
     }
   ];
 
@@ -86,7 +70,6 @@ const Streaming = () => {
           
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Com a Fast Fibra, você tem acesso aos melhores streamings do mercado. 
-            Escolha entre Netflix, Disney+, Prime Video, Max e muito mais. 
             A cada mês, troque de plataforma sem custo adicional e aproveite o que há de melhor em entretenimento.
           </p>
         </div>
