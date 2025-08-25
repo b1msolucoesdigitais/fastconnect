@@ -51,7 +51,7 @@ const Contact = () => {
                   </div>
                   <h4 className="font-semibold mb-2 text-foreground">Telefone</h4>
                   <p className="text-primary font-semibold">{config.contact.phoneFormatted}</p>
-                  <p className="text-sm text-muted-foreground">Seg-Sex: 09:00 às 18:00</p>
+                  <p className="text-sm text-muted-foreground">Seg-Sex: 08:00 às 18:00<br />Sábado: 08:00 às 12h00</p>
                 </CardContent>
               </Card>
 
@@ -82,9 +82,9 @@ const Contact = () => {
                   <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-brand-blue-light/20 rounded-lg flex items-center justify-center mx-auto mb-4">
                     <MapPin className="w-6 h-6 text-primary" />
                   </div>
+                  <h4 className="font-semibold mb-2 text-foreground">Endereço</h4>
                   <h4 className="text-sm text-muted-foreground">
-                    Avenida Galiléia, 652, Canaã<br />
-                    Ipatinga/MG
+                    Av. José Selim de Sales, 1548, Canaã - Ipatinga/MG
                   </h4>
                 </CardContent>
               </Card>

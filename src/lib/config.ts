@@ -3,15 +3,15 @@ export const config = {
   // Informações de contato
   contact: {
     whatsapp: "5531986947249",
-    phone: "5531986947249",
+    phone: "553138259149",
     // Formatação para exibição
     whatsappFormatted: "(31) 98694-7249",
-    phoneFormatted: "(31) 98694-7249"
+    phoneFormatted: "(31) 3825-9149"
   },
   
   // URLs de contato
   urls: {
-    phone: "tel:5531986947249"
+    phone: "tel:553138259149"
   },
   
   // Mensagens padrão
