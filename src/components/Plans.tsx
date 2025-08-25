@@ -318,8 +318,8 @@ const Plans = () => {
                           </div>
                         )}
 
-                        {/* Mobile Plan Checkbox */}
-                        <div className={`mb-6 p-4 rounded-lg border bg-white/60 border-blue-200`}>
+                        {/* Mobile Plan Checkbox - Temporariamente oculto */}
+                        {/* <div className={`mb-6 p-4 rounded-lg border bg-white/60 border-blue-200`}>
                           <div className="flex items-center space-x-3">
                             <Checkbox 
                               id={`mobile-${plan.id}`}
@@ -335,7 +335,7 @@ const Plans = () => {
                               <span>+1 Plano de celular 20GB</span>
                             </label>
                           </div>
-                        </div>
+                        </div> */}
 
                         {/* Price and Button Section */}
                         <div className="space-y-4">
